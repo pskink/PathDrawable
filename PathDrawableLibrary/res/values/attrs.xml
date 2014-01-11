@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PathDrawable">
+        <!-- path bounds width -->
+        <attr name="path_width" format="float"/>
+        <!-- path bounds height -->
+        <attr name="path_height" format="float"/>
+        <!-- background drawable -->
+        <attr name="android:background" />
+        
+        <!-- layer tag -->
+        <attr name="android:tag" />
+        <!-- layer gravity -->
+        <attr name="android:gravity" />
+        <!-- layer gravity x offset-->
+        <attr name="x_offset" format="dimension" />
+        <!-- layer gravity y offset-->
+        <attr name="y_offset" format="dimension" />
+        
+        <!-- path data -->
+        <attr name="data" format="string" />
+        <!-- stroke color -->
+        <attr name="stroke_color" format="color" />
+        <!-- stroke width -->
+        <attr name="stroke_width" format="dimension" />
+        <!-- path stroke style -->
+        <attr name="stroke_style">
+            <flag name="stroke" value="1" />
+            <flag name="fill" value="2" />
+        </attr>
+        <!-- path cap type -->
+        <attr name="cap_type">
+            <enum name="butt" value="0" />
+            <enum name="round" value="1" />
+            <enum name="square" value="2" />
+        </attr>
+    </declare-styleable>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    tools:path_width="32" tools:path_height="32"
+>
+    <layer
+		tools:data="M 2,2 L 30,2 L 30,30 z"
+        tools:stroke_color="#0a0"
+        tools:stroke_width="15dp"
+    />
+</layers>

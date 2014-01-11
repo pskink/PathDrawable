@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    tools:path_width="32" tools:path_height="32"
+    android:background="#ed0"
+>
+    <layer android:tag="layer0"
+	    tools:data="M 32,32 L 32,0 C 15.540043,29.087754 4.2291386,12.026918 0,32 C 5.0306191,31.989233 32,32 32,32 z"
+        tools:stroke_color="#a500c200"
+        tools:stroke_style="fill"
+    />
+    <layer android:tag="layer1"
+        tools:data="M 0,0 L 32,0 C 32,0 29.59354,13.827725 21.59354,21.827725 C 13.59354,29.827725 0,32 0,32 z"
+        tools:stroke_color="#a8c50000"
+        tools:stroke_style="fill"
+   />
+</layers>

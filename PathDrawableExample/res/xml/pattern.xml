@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layers xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
+    tools:path_width="32" tools:path_height="32"
+>
+    <layer android:tag="layer0"
+		tools:data="M 27.391655,25.410499 L 13.612812,30.584365 L 2.242691,21.23847 L 4.651413,6.7187089 L 18.430256,1.5448427 L 29.800377,10.890738 L 27.391655,25.410499 z"
+        tools:stroke_color="#000"
+        tools:stroke_style="fill"
+    />
+</layers>
