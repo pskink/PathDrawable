@@ -4,14 +4,14 @@
     tools:path_width="32" tools:path_height="32"
 >
     <layer
-		tools:data="M 13.445932,1.5695522 L 1.7938649,14.570326 L 10.541312,29.666716 L 27.623457,26.023561 L 29.42482,8.6519601 z"
+        tools:data="M 13.445932,1.5695522 L 1.7938649,14.570326 L 10.541312,29.666716 L 27.623457,26.023561 L 29.42482,8.6519601 z"
         tools:stroke_color="#00a"
         tools:stroke_width="20dp"
     >
-	    <layer
-			tools:data="M 13.445932,1.5695522 L 1.7938649,14.570326 L 10.541312,29.666716 L 27.623457,26.023561 L 29.42482,8.6519601 z"
-	        tools:stroke_color="#afa0"
-	        tools:stroke_width="5dp"
-	    />
+        <layer
+            tools:data="M 13.445932,1.5695522 L 1.7938649,14.570326 L 10.541312,29.666716 L 27.623457,26.023561 L 29.42482,8.6519601 z"
+            tools:stroke_color="#afa0"
+            tools:stroke_width="5dp"
+        />
     </layer>
 </layers>

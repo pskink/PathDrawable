@@ -11,36 +11,36 @@
         android:layout_height="wrap_content"
         android:orientation="vertical" >
         <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="240dp"
-	        android:text="Heart"
-	        android:textSize="32sp"
-	        android:gravity="center"
-	        app:xml_drawable="@xml/heart"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:text="Heart"
+            android:textSize="32sp"
+            android:gravity="center"
+            app:xml_drawable="@xml/heart"
         />
         <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="240dp"
-	        android:text="Triangle"
-	        android:textSize="32sp"
-	        android:gravity="center"
-	        app:xml_drawable="@xml/triangle"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:text="Triangle"
+            android:textSize="32sp"
+            android:gravity="center"
+            app:xml_drawable="@xml/triangle"
         />
         <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="240dp"
-	        android:text="Rectangle"
-	        android:textSize="32sp"
-	        android:gravity="center"
-	        app:xml_drawable="@xml/square"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:text="Rectangle"
+            android:textSize="32sp"
+            android:gravity="center"
+            app:xml_drawable="@xml/square"
         />
         <TextView
-	        android:layout_width="match_parent"
-	        android:layout_height="240dp"
-	        android:text="Pentagon"
-	        android:textSize="32sp"
-	        android:gravity="center"
-	        app:xml_drawable="@xml/pentagon"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:text="Pentagon"
+            android:textSize="32sp"
+            android:gravity="center"
+            app:xml_drawable="@xml/pentagon"
         />
     </LinearLayout>
 </ScrollView>

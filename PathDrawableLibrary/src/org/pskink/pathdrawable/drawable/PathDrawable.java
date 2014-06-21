@@ -152,8 +152,9 @@ public class PathDrawable extends Drawable {
     }
     
     /**
-     * A helper method to be invoked in {@link LayoutInflater.Factory#onCreateView(String, Context, AttributeSet)} in order
-     * to automatically set PathDrawable defined by {@link R.attr#xml_drawable} in xml layout file
+     * A helper method to be invoked in {@link LayoutInflater.Factory#onCreateView(String, Context, AttributeSet)}
+     * in order to automatically set PathDrawable defined by {@link R.attr#xml_drawable} in xml layout file
+     * 
      * @param inflater
      * @param name
      * @param context
@@ -166,27 +167,27 @@ public class PathDrawable extends Drawable {
         };
         View v = null;
         int[] what = {
-             R.attr.xml_drawable
+            R.attr.xml_drawable
         };
-		TypedArray a = context.obtainStyledAttributes(attrs, what);
+        TypedArray a = context.obtainStyledAttributes(attrs, what);
         int id = a.getResourceId(0, 0);
-		if (id != 0) {
-			try {
+        if (id != 0) {
+            try {
                 if (name.indexOf('.') == -1) {
                     for (String prefix : prefixes) {
-                		v = inflater.createView(name, prefix, attrs);
-                		if (v != null) {
-                			break;
-                		}
-					}
+                        v = inflater.createView(name, prefix, attrs);
+                        if (v != null) {
+                            break;
+                        }
+                    }
                 } else {
-                	v = inflater.createView(name, null, attrs);
+                    v = inflater.createView(name, null, attrs);
                 }
-				v.setBackgroundDrawable(new PathDrawable(context, id));
-			} catch (Exception e) {
-				Log.d(TAG, "createView error: ", e);
-			}
-		}
+                v.setBackgroundDrawable(new PathDrawable(context, id));
+            } catch (Exception e) {
+                Log.d(TAG, "createView error: ", e);
+            }
+        }
         a.recycle();
         return v;
     }
@@ -432,30 +433,30 @@ public class PathDrawable extends Drawable {
         }
 
         private void readPath(String data, Path p) {
-        	String token = null;
-        	int i = 0;
+            String token = null;
+            int i = 0;
             try {
                 String[] tokens = tokenize(data);
-				while (i < tokens.length) {
-                	if (token == null || Character.isLetter(tokens[i].charAt(0))) {
-                		token = tokens[i++];
-                	}
+                while (i < tokens.length) {
+                    if (token == null || Character.isLetter(tokens[i].charAt(0))) {
+                        token = tokens[i++];
+                    }
                     if (token.equalsIgnoreCase("M")) {
                         float x = Float.valueOf(tokens[i++]);
                         float y = Float.valueOf(tokens[i++]);
                         if (token.equals("M")) {
-                        	p.moveTo(x, y);
+                            p.moveTo(x, y);
                         } else {
-                        	p.rMoveTo(x, y);
+                            p.rMoveTo(x, y);
                         }
                     } else
                     if (token.equalsIgnoreCase("L")) {
                         float x = Float.valueOf(tokens[i++]);
                         float y = Float.valueOf(tokens[i++]);
                         if (token.equals("L")) {
-                        	p.lineTo(x, y);
+                            p.lineTo(x, y);
                         } else {
-                        	p.rLineTo(x, y);
+                            p.rLineTo(x, y);
                         }
                     } else
                     if (token.equalsIgnoreCase("C")) {
@@ -466,9 +467,9 @@ public class PathDrawable extends Drawable {
                         float x3 = Float.valueOf(tokens[i++]);
                         float y3 = Float.valueOf(tokens[i++]);
                         if (token.equals("C")) {
-                        	p.cubicTo(x1, y1, x2, y2, x3, y3);
+                            p.cubicTo(x1, y1, x2, y2, x3, y3);
                         } else {
-                        	p.rCubicTo(x1, y1, x2, y2, x3, y3);
+                            p.rCubicTo(x1, y1, x2, y2, x3, y3);
                         }
                     } else
                     if (token.equals("z")) {
@@ -485,23 +486,23 @@ public class PathDrawable extends Drawable {
         }
 
         private String[] tokenize(String data) {
-    		int i = 0;
-    		data = data.replaceAll("[\t ]+", " ");
+            int i = 0;
+            data = data.replaceAll("[\t ]+", " ");
             String[] tmp = data.split("[, ]");
             // remove empty tokens
             for (String s : tmp) {
-    			if (s.length() != 0) {
-    				i++;
-    			}
-    		}
+                if (s.length() != 0) {
+                    i++;
+                }
+            }
             String[] tokens = new String[i];
             i = 0;
             for (String s : tmp) {
-    			if (s.length() != 0) {
-    				tokens[i++] = s;
-    			}
-    		}
+                if (s.length() != 0) {
+                    tokens[i++] = s;
+                }
+            }
             return tokens;
-    	}
+        }
     }
 }

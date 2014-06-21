@@ -5,7 +5,7 @@
     android:background="#ed0"
 >
     <layer android:tag="layer0"
-	    tools:data="M 32,32 L 32,0 C 15.540043,29.087754 4.2291386,12.026918 0,32 C 5.0306191,31.989233 32,32 32,32 z"
+        tools:data="M 32,32 L 32,0 C 15.540043,29.087754 4.2291386,12.026918 0,32 C 5.0306191,31.989233 32,32 32,32 z"
         tools:stroke_color="#a500c200"
         tools:stroke_style="fill"
     />
