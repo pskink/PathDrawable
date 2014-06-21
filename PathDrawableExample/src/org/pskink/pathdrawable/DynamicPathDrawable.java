@@ -5,6 +5,7 @@ import org.pskink.pathdrawable.drawable.PathDrawable.OnBoundsChangeListener;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
@@ -19,6 +20,7 @@ import android.graphics.Rect;
 import android.graphics.Shader;
 import android.graphics.Shader.TileMode;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,8 +28,8 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ListAdapter;
 
-public class Test extends Activity {
-    private final static String TAG = "Main";
+public class DynamicPathDrawable extends Activity {
+    private final static String TAG = "DynamicPathDrawable";
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,7 +82,7 @@ public class Test extends Activity {
         public View getView(int position, View convertView, ViewGroup parent) {
             V v = (V) convertView;
             if (v == null) {
-                v = new V(Test.this);
+                v = new V(DynamicPathDrawable.this);
             }
             v.setSample(mSamples[position]);
             v.setBackground();

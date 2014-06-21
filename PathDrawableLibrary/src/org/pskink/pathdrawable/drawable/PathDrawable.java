@@ -26,8 +26,11 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Xml;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
 
 public class PathDrawable extends Drawable {
     private final static String TAG = "PathDrawable";
@@ -148,6 +151,46 @@ public class PathDrawable extends Drawable {
         return null;
     }
     
+    /**
+     * A helper method to be invoked in {@link LayoutInflater.Factory#onCreateView(String, Context, AttributeSet)} in order
+     * to automatically set PathDrawable defined by {@link R.attr#xml_drawable} in xml layout file
+     * @param inflater
+     * @param name
+     * @param context
+     * @param attrs
+     * @return
+     */
+    public static View createView(LayoutInflater inflater, String name, Context context, AttributeSet attrs) {
+        String[] prefixes = {
+            "android.widget.", "android.view.", "android.webkit.",
+        };
+        View v = null;
+        int[] what = {
+             R.attr.xml_drawable
+        };
+		TypedArray a = context.obtainStyledAttributes(attrs, what);
+        int id = a.getResourceId(0, 0);
+		if (id != 0) {
+			try {
+                if (name.indexOf('.') == -1) {
+                    for (String prefix : prefixes) {
+                		v = inflater.createView(name, prefix, attrs);
+                		if (v != null) {
+                			break;
+                		}
+					}
+                } else {
+                	v = inflater.createView(name, null, attrs);
+                }
+				v.setBackgroundDrawable(new PathDrawable(context, id));
+			} catch (Exception e) {
+				Log.d(TAG, "createView error: ", e);
+			}
+		}
+        a.recycle();
+        return v;
+    }
+
     private void init(float pathWidth, float pathHeight) {
         if (pathWidth <= 0 || pathHeight <= 0) {
             throw new RuntimeException("Both pathWidth and pathHeight must be >= 0");
@@ -389,29 +432,44 @@ public class PathDrawable extends Drawable {
         }
 
         private void readPath(String data, Path p) {
+        	String token = null;
+        	int i = 0;
             try {
-                String[] tokens = data.split("[ ,]");
-                int i = 0;
-                while (i < tokens.length) {
-                    String token = tokens[i++];
-                    if (token.equals("M")) {
+                String[] tokens = tokenize(data);
+				while (i < tokens.length) {
+                	if (token == null || Character.isLetter(tokens[i].charAt(0))) {
+                		token = tokens[i++];
+                	}
+                    if (token.equalsIgnoreCase("M")) {
                         float x = Float.valueOf(tokens[i++]);
                         float y = Float.valueOf(tokens[i++]);
-                        p.moveTo(x, y);
+                        if (token.equals("M")) {
+                        	p.moveTo(x, y);
+                        } else {
+                        	p.rMoveTo(x, y);
+                        }
                     } else
-                    if (token.equals("L")) {
+                    if (token.equalsIgnoreCase("L")) {
                         float x = Float.valueOf(tokens[i++]);
                         float y = Float.valueOf(tokens[i++]);
-                        p.lineTo(x, y);
+                        if (token.equals("L")) {
+                        	p.lineTo(x, y);
+                        } else {
+                        	p.rLineTo(x, y);
+                        }
                     } else
-                    if (token.equals("C")) {
+                    if (token.equalsIgnoreCase("C")) {
                         float x1 = Float.valueOf(tokens[i++]);
                         float y1 = Float.valueOf(tokens[i++]);
                         float x2 = Float.valueOf(tokens[i++]);
                         float y2 = Float.valueOf(tokens[i++]);
                         float x3 = Float.valueOf(tokens[i++]);
                         float y3 = Float.valueOf(tokens[i++]);
-                        p.cubicTo(x1, y1, x2, y2, x3, y3);
+                        if (token.equals("C")) {
+                        	p.cubicTo(x1, y1, x2, y2, x3, y3);
+                        } else {
+                        	p.rCubicTo(x1, y1, x2, y2, x3, y3);
+                        }
                     } else
                     if (token.equals("z")) {
                         p.close();
@@ -421,7 +479,29 @@ public class PathDrawable extends Drawable {
                 }
             } catch (IndexOutOfBoundsException e) {
                 throw new RuntimeException("bad data ", e);
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("bad data near token " + i, e);
             }
         }
+
+        private String[] tokenize(String data) {
+    		int i = 0;
+    		data = data.replaceAll("[\t ]+", " ");
+            String[] tmp = data.split("[, ]");
+            // remove empty tokens
+            for (String s : tmp) {
+    			if (s.length() != 0) {
+    				i++;
+    			}
+    		}
+            String[] tokens = new String[i];
+            i = 0;
+            for (String s : tmp) {
+    			if (s.length() != 0) {
+    				tokens[i++] = s;
+    			}
+    		}
+            return tokens;
+    	}
     }
 }

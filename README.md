@@ -7,8 +7,11 @@ It uses **extremely** simplified SVG data format used in *&lt;path&gt;* tag for
 Supported commands are:
 
 *  *M* - move to, interpreted as [Path.moveTo][]
+*  *m* - relative move to, interpreted as [Path.rMoveTo][]
 *  *L* - line to, interpreted as [Path.lineTo][]
+*  *l* - relative line to, interpreted as [Path.rLineTo][]
 *  *C* - cubic to, interpreted as [Path.cubicTo][]
+*  *c* - relative cubic to, interpreted as [Path.rCubicTo][]
 *  *z* - close, interpreted as [Path.close][]
 
 You can create PathDrawable object in two ways: in xml file or by API calls.
@@ -87,6 +90,12 @@ or:
     pd.addLayer(data, 0xff00ff00, 5, Style.STROKE, Cap.ROUND);
     view.setBackgroundDrawable(pd);
 
+or you can directly add your PathDrawable xml definition in the layout file using
+
+    app:xml_drawable="@xml/..."
+
+attribute, see [static_layout.xml](PathDrawableExample/res/layout/static_layout.xml) and [StaticPathDrawable.java](PathDrawableExample/src/org/pskink/pathdrawable/StaticPathDrawable.java) for details.
+
 Snapshot of some PathDrawables:
 
 ![snapshot](images/snapshot.png)
@@ -96,9 +105,13 @@ Thank you.
 [Drawable]:       http://developer.android.com/reference/android/graphics/drawable/Drawable.html
 [Path]:           http://developer.android.com/reference/android/graphics/Path.html
 [Path.moveTo]:    http://developer.android.com/reference/android/graphics/Path.html#moveTo(float,%20float)
+[Path.rMoveTo]:   http://developer.android.com/reference/android/graphics/Path.html#rMoveTo(float,%20float)
 [Path.lineTo]:    http://developer.android.com/reference/android/graphics/Path.html#lineTo(float,%20float)
+[Path.rLineTo]:   http://developer.android.com/reference/android/graphics/Path.html#rLineTo(float,%20float)
 [Path.cubicTo]:   http://developer.android.com/reference/android/graphics/Path.html#cubicTo(float,%20float,%20float,%20float,%20float,%20float)
+[Path.rCubicTo]:  http://developer.android.com/reference/android/graphics/Path.html#rCubicTo(float,%20float,%20float,%20float,%20float,%20float)
 [Path.close]:     http://developer.android.com/reference/android/graphics/Path.html#close()
 [PathData]:       http://www.w3.org/TR/SVGTiny12/paths.html#PathData
 [BackgroundAttr]: http://developer.android.com/reference/android/R.attr.html#background
 [GravityAttr]:    http://developer.android.com/reference/android/R.attr.html#gravity
+

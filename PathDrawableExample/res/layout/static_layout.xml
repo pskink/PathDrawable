@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingPrefix"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="240dp"
+	        android:text="Heart"
+	        android:textSize="32sp"
+	        android:gravity="center"
+	        app:xml_drawable="@xml/heart"
+        />
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="240dp"
+	        android:text="Triangle"
+	        android:textSize="32sp"
+	        android:gravity="center"
+	        app:xml_drawable="@xml/triangle"
+        />
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="240dp"
+	        android:text="Rectangle"
+	        android:textSize="32sp"
+	        android:gravity="center"
+	        app:xml_drawable="@xml/square"
+        />
+        <TextView
+	        android:layout_width="match_parent"
+	        android:layout_height="240dp"
+	        android:text="Pentagon"
+	        android:textSize="32sp"
+	        android:gravity="center"
+	        app:xml_drawable="@xml/pentagon"
+        />
+    </LinearLayout>
+</ScrollView>
