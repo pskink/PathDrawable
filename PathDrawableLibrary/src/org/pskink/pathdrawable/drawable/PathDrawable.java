@@ -196,7 +196,7 @@ public class PathDrawable extends Drawable {
         if (pathWidth <= 0 || pathHeight <= 0) {
             throw new RuntimeException("Both pathWidth and pathHeight must be >= 0");
         }
-        mPathRect = new RectF(0, 0, pathHeight, pathHeight);
+        mPathRect = new RectF(0, 0, pathWidth, pathHeight);
         mLayers = new LinkedList<Layer>(); 
     }
     
