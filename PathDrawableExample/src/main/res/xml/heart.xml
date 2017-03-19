@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layers xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/apk/res-auto"
+<layers xmlns:tools="http://schemas.android.com/apk/res-auto"
     tools:path_width="32" tools:path_height="32"
 >
     <layer

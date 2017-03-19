@@ -9,16 +9,21 @@
         <attr name="android:background" />
         <!-- xml drawable resource -->
         <attr name="xml_drawable" format="reference"/>
-        
+        <!-- viewport padding -->
+        <attr name="android:padding" />
+        <attr name="android:paddingLeft" />
+        <attr name="android:paddingTop" />
+        <attr name="android:paddingRight" />
+        <attr name="android:paddingBottom" />
+        <attr name="scale_type">
+            <enum name="fill" value="0" />
+            <enum name="start" value="1" />
+            <enum name="center" value="2" />
+            <enum name="end" value="3" />
+        </attr>
+
         <!-- layer tag -->
         <attr name="android:tag" />
-        <!-- layer gravity -->
-        <attr name="android:gravity" />
-        <!-- layer gravity x offset-->
-        <attr name="x_offset" format="dimension" />
-        <!-- layer gravity y offset-->
-        <attr name="y_offset" format="dimension" />
-        
         <!-- path data -->
         <attr name="data" format="string" />
         <!-- stroke color -->

@@ -2,9 +2,11 @@
 <layers xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/apk/res-auto"
     tools:path_width="32" tools:path_height="32"
+    android:padding="5dp"
+    android:paddingLeft="15dp"
 >
     <layer
-        tools:data="M 2,2 L 30,2 L 30,30 L 2,30 z"
+        tools:data="M 0,0 L 32,0 L 32,32 L 0,32 z"
         tools:stroke_color="#a00"
         tools:stroke_width="10dp"
     />

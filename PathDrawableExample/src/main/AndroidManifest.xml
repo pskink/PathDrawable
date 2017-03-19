@@ -2,12 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="org.pskink.pathdrawable" >
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="17" />
-
-    <supports-screens android:anyDensity="true" />
-
     <application
         android:icon="@drawable/ic_launcher"
         android:label="PathDrawable" >

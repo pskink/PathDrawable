@@ -4,15 +4,6 @@ PathDrawable is a [Drawable][] that draws simple shapes using [Path][] object.
 
 It uses **extremely** simplified SVG data format used in *&lt;path&gt;* tag for
 *d* attribute, see [here][PathData] for more info.
-Supported commands are:
-
-*  *M* - move to, interpreted as [Path.moveTo][]
-*  *m* - relative move to, interpreted as [Path.rMoveTo][]
-*  *L* - line to, interpreted as [Path.lineTo][]
-*  *l* - relative line to, interpreted as [Path.rLineTo][]
-*  *C* - cubic to, interpreted as [Path.cubicTo][]
-*  *c* - relative cubic to, interpreted as [Path.rCubicTo][]
-*  *z* - close, interpreted as [Path.close][]
 
 You can create PathDrawable object in two ways: in xml file or by API calls.
 
@@ -25,20 +16,17 @@ XML file format is pretty simple: *&lt;layers&gt;* must be the root tag. It must
 *  *path_width* (format="float") - path bounds width (**required**)
 *  *path_height* (format="float") - path bounds height (**required**)
 *  *android:background* - background drawable, see [android:background attr][BackgroundAttr]
-
-*path_width* and *path_height* define the bounds that will be used for path mapping: it
-will be resized with:
-
-    scalex = Drawable width / path_width
-    scaley = Drawable height / path_height
+*  *android:padding* - drawable padding
+*  *scale_type* - scale type for layer scaling (defaults to *fill*), must be one of the following constant values:
+  -   *fill*
+  -   *start*
+  -   *center*
+  -   *end*
 
 *&lt;layer&gt;* tag attributes:
 
 *  *android:tag* (format="string") - layer tag, used with PathDrawable.findLayerByTag(Object) to get the layer
        with given tag
-*  *android:gravity* - layer gravity, see [android:gravity attr][GravityAttr]
-*  *x_offset* (format="dimension") - layer gravity x offset, used when *android:gravity* specified 
-*  *y_offset* (format="dimension") - layer gravity y offset, used when *android:gravity* specified
 *  *data* (format="string") - path data (**required**)
 *  *stroke_color* (format="color") - stroke color (defaults to #fff)
 *  *stroke_width* (format="dimension") - stroke width (defaults to 1)
@@ -104,14 +92,5 @@ Thank you.
 
 [Drawable]:       http://developer.android.com/reference/android/graphics/drawable/Drawable.html
 [Path]:           http://developer.android.com/reference/android/graphics/Path.html
-[Path.moveTo]:    http://developer.android.com/reference/android/graphics/Path.html#moveTo(float,%20float)
-[Path.rMoveTo]:   http://developer.android.com/reference/android/graphics/Path.html#rMoveTo(float,%20float)
-[Path.lineTo]:    http://developer.android.com/reference/android/graphics/Path.html#lineTo(float,%20float)
-[Path.rLineTo]:   http://developer.android.com/reference/android/graphics/Path.html#rLineTo(float,%20float)
-[Path.cubicTo]:   http://developer.android.com/reference/android/graphics/Path.html#cubicTo(float,%20float,%20float,%20float,%20float,%20float)
-[Path.rCubicTo]:  http://developer.android.com/reference/android/graphics/Path.html#rCubicTo(float,%20float,%20float,%20float,%20float,%20float)
-[Path.close]:     http://developer.android.com/reference/android/graphics/Path.html#close()
 [PathData]:       http://www.w3.org/TR/SVGTiny12/paths.html#PathData
 [BackgroundAttr]: http://developer.android.com/reference/android/R.attr.html#background
-[GravityAttr]:    http://developer.android.com/reference/android/R.attr.html#gravity
-

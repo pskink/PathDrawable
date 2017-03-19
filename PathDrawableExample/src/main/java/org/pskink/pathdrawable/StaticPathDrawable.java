@@ -1,13 +1,13 @@
 package org.pskink.pathdrawable;
 
-import org.pskink.pathdrawable.drawable.PathDrawable;
-
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
+
+import org.pskink.pathdrawable.drawable.PathDrawable;
 
 public class StaticPathDrawable extends Activity {
     private static final String TAG = "StaticPathDrawable";

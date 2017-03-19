@@ -15,7 +15,7 @@ public class Main extends Activity implements OnItemClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ListView lv = new ListView(this);
-        ArrayAdapter<String> a = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        ArrayAdapter<String> a = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
         a.add("Dynamic PathDrawable");
         a.add("Static PathDrawable");
         lv.setAdapter(a);
